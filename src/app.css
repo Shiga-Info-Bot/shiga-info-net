@@ -131,3 +131,6 @@ h3::before{
     width: 5px;
     height: 2px;
 }
+
+section#blogContent p {margin: 10px 0;}
+section#blogContent img {margin: 10px 0; max-width: 100%;}

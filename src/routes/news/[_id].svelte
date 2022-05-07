@@ -57,8 +57,6 @@
     section#blogTitleWrap span.blogTag {margin: 0 5px;}
     section#blogTitleWrap span.blogTag:first-child{margin: 0 5px 0 0;}
     section#blogContent {padding: 5px 40px;}
-    section#blogContent p {margin: 10px 0;}
-    section#blogContent img {margin: 10px 0; max-width: 100%;}
 
     section#links a {
         font-size: .9rem;
