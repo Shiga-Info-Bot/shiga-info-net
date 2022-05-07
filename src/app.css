@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "YuGothic";
+    src: local("Yu Gothic Medium"),
+        local("Yu Gothic");
+    font-weight: 500;
+}
+
+html,body,
+header, main, footer, section, div,
+h1, h2, h3, h4, h5, h6,
+p, a, span,
+ul, ol, li,
+table, tr, th ,td, thead, tbody, tfoot,
+canvas,
+pre, code,
+dl, dt,
+iframe, image,
+label, nav,
+param,path,picture,
+rb, rp, rt, ruby,
+select, source, svg,
+text, textarea {
+    margin: 0; padding: 0;
+}
+h1, h2, h3, h4, h5, h6,
+p, a, span,
+ul, ol, li,
+table, tr, th ,td, thead, tbody, tfoot,
+pre, code,
+dl, dt,
+label, nav,
+param,
+rb, rp, rt, ruby,
+select,
+text, textarea {
+    /*  フォントの種類  */
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-size: 16px;
+    color: #121212;
+    letter-spacing: calc(1px - .0625em);
+    line-height: 1.5;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {padding: 0;border: none;border-radius: 0;outline: none;background: none;}
+input[type="radio"]:checked + label {background: #ff0000;}
+input[type="checkbox"]:checked + label {background: #ff0000;}
+select {border: none;outline: none;background: transparent;}
+textarea {-webkit-appearance: none;-moz-appearance: none;appearance: none;resize: none;padding: 0;border: 0;outline: none;background: transparent;}
+button,
+input[type="submit"],
+input[type="button"] {-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;border: none;outline: none;background: transparent;}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    display: block;
+    width: calc(100% - 4px);
+    box-sizing:border-box;
+    border: #aeaeae solid 2px;
+    border-radius: 6px;
+    padding: 7px 5px;
+}
+button,
+input[type="submit"],
+input[type="button"] {
+    min-width: 300px;
+    background-color: transparent;
+    color: #121212;
+    padding: 10px 5px;
+    border-radius: 6px;
+    border: #aeaeae solid 2px;
+}
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+    background-color: #efefef;
+}
+
+h1 {font-size: 1.5rem; font-weight: bold;}
+h2 {font-size: 1.4rem; font-weight: bold;}
+h3 {font-size: 1.2rem; font-weight: bold;}
+h4 {font-size: 1.1rem; font-weight: bold;}
+h5 {font-size: 1.1rem; font-weight: bold;}
+h6 {font-size: 1.1rem; font-weight: normal;}
+
+a {display: block; width: fit-content;}
+p a {display: inline-block;}
+
+
+ul,
+ol {
+    margin-left: 20px;
+}
+
+main {
+    padding: 0 10px;
+    margin: 0 auto;
+    min-height: calc(100% - 44px);
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* リセット・デフォルト CSS終わり */
+
+html,
+body {height: 100%;}
+
+h3 {
+    position: relative;
+    font-size: 1rem;
+    line-height: .8em;
+    font-weight: bold;
+    margin: 10px 2px 5px 2px;
+    padding-left: 10px;
+}
+h3::before{
+    content: '';
+    position: absolute;
+    background-color: #909090;
+    top: 50%;
+    left: 0px;
+    display: inline-block;
+    width: 5px;
+    height: 2px;
+}
