@@ -82,7 +82,7 @@
                 rel="noopener noreferrer"
             >
                 <img src={TwitterLogo} alt="twitterの画像">
-                <span>滋賀県コロナ・防災・交通Bot</span>
+                <span>滋賀コロナ・防災・交通Bot</span>
             </a>
         </div>
     </div>
