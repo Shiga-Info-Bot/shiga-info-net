@@ -31,7 +31,10 @@
 
 <section id="blogTitleWrap">
     <h1>{newsContent.title}</h1>
-    <p>{newsContent.day}</p>
+    <p id="uploadDate">
+        {new Date(newsContent.day).getFullYear() }/{ new Date(newsContent.day).getMonth() }/{ new Date(newsContent.day).getDate() } 
+        { new Date(newsContent.day).getHours().toString().padStart(2, '0') }:{ new Date(newsContent.day).getMinutes().toString().padStart(2, '0') }
+    </p>
     <p>
     {#each newsContent.tags as tag}
         <span class="blogTag">#{tag}</span>
@@ -54,6 +57,7 @@
         padding-top: 70px;
         padding: 70px 40px 10px 40px;
     }
+    p#uploadDate {margin: 3px 0;}
     section#blogTitleWrap span.blogTag {margin: 0 5px;}
     section#blogTitleWrap span.blogTag:first-child{margin: 0 5px 0 0;}
     section#blogContent {padding: 5px 40px;}
