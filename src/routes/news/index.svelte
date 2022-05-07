@@ -30,7 +30,7 @@
                 <div class="newsTexts">
                     <span class="newsTitle">{ newsContent.title }</span>
                     <span class="newsDate">
-                        {new Date(newsContent.day).getFullYear() }/{ new Date(newsContent.day).getMonth() }/{ new Date(newsContent.day).getDate() } 
+                        {new Date(newsContent.day).getFullYear() }/{ new Date(newsContent.day).getMonth() + 1 }/{ new Date(newsContent.day).getDate() } 
                         { new Date(newsContent.day).getHours().toString().padStart(2, '0') }:{ new Date(newsContent.day).getMinutes().toString().padStart(2, '0') }
                     </span>
                 </div>
