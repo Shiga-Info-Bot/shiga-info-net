@@ -24,7 +24,7 @@
     <meta property="og:url" content="{pageUrl}" />
     <meta property="og:type" content=" article" />
     <meta property="og:title" content="{newsContent.title}" />
-    <meta property="og:description" content=" ページのディスクリプション" />
+    <meta property="og:description" content="{newsContent.description}" />
     <meta property="og:site_name" content="滋賀情報ネット" />
     <meta property="og:image" content=" {newsContent.thumbnail.src}" />
 </svelte:head>
