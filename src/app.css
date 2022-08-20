@@ -145,3 +145,31 @@ blockquote::before {
     content: "";
     background-color: #aeaeae;
 }
+
+section table {
+    border: 1px solid #a8a8a8;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 100%;
+    overflow: auto;
+}
+
+section table th {
+    background-color: #eeeeee;
+    border: 1px solid #a8a8a8;
+    font-weight: 700;
+    padding: 10px 6px;
+    text-align: center;
+    word-break: break-word;
+}
+
+section table td {
+    border: 1px solid #a8a8a8;
+    min-width: 60px;
+    padding: 10px 15px;
+    text-align: left;
+    word-break: break-word;
+}
