@@ -63,6 +63,7 @@
     section#blogContent {padding: 5px 40px;}
 
     section#links a {
+        display: inline-block;
         font-size: .9rem;
         font-weight: bold;
         margin: 0 auto;
