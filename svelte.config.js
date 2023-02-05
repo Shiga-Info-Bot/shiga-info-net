@@ -1,7 +1,10 @@
 import adapter from'@sveltejs/adapter-netlify';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
 	kit: {
 		adapter: adapter()
 	}
 };
+
+export default config;
