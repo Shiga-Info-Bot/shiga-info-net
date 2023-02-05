@@ -46,7 +46,7 @@
         </div>
         <div class="formContent">
             <p class="formRequire">お問い合わせ内容</p>
-            <textarea name="" id="" cols="30" rows="10" required></textarea>
+            <textarea name="content" id="content" cols="30" rows="10" required></textarea>
         </div>
         <input type="hidden" id="recaptchaToken" name="googleReCaptchaToken" />
         <button type="submit">送信</button>
