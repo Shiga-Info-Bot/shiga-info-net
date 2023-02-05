@@ -1,25 +1,22 @@
-<script context="module">
-    export async function load({ url }) {
-        const apiUrl = `${url.origin}/news/list.json?limit=10`
-        console.log(apiUrl)
-        const res = await fetch(apiUrl)
-        if (!res.ok) {
-            return
-        }
-        let newsContentList = await res.json()
-        newsContentList = newsContentList.items
-        return {
-            props: { newsContentList },
-        }
-    }
-</script>
 <script>
-    export let newsContentList;
+    /** @type {import('./$types').PageData} */
+    export let data;
+
+    const pages = Math.ceil(data.content.total / 10)
 </script>
+<svelte:head>
+	<title>ニュース一覧 - 滋賀情報ネット News</title>
+    <meta property="og:url" content="https://shiga-info.net/news/" />
+    <meta property="og:type" content=" article" />
+    <meta property="og:title" content="ニュース一覧" />
+    <meta property="og:description" content="滋賀県情報ネットのニュース・プレスリリースの一覧です。" />
+    <meta property="og:site_name" content="滋賀情報ネット" />
+    <meta property="og:image" content="" />
+</svelte:head>
 
 <section>
     <div class="news_list">
-        {#each newsContentList as newsContent }
+        {#each data.content.items as newsContent }
             <a 
                 class="news_wrap"
                 href="/news/{ newsContent._id }"
@@ -37,11 +34,22 @@
             </a>
         {/each}
     </div>
+    <div id="paginationWrap">
+        {#each Array(pages) as _, i}
+            {#if data.page == i}
+                <p class="pagination">{ i + 1 }</p>
+            {:else}
+                <a class="pagination" href="/news?p={i + 1}">{i + 1}</a>
+            {/if}
+        {/each}
+    </div>
 </section>
 
 <style>
     section {
         padding: 60px 10px 10px 10px;
+        max-width: 900px;
+        margin: 0 auto;
     }
     a.news_wrap {
         width: 100%;
@@ -74,5 +82,25 @@
     a.news_wrap div.newsTexts span {
         display: block;
         margin: 2px 10px;
+    }
+
+    div#paginationWrap {
+        display: flex;
+        justify-content: center;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+    }
+    div#paginationWrap .pagination {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.12) 9px 9px 32px 0px;
+    }
+    div#paginationWrap p.pagination {
+        padding: 10px;
+        font-size: 1.2rem;
     }
 </style>

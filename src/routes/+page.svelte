@@ -1,27 +1,22 @@
-<script context="module">
-    export async function load({ url }) {
-        const apiUrl = `${url.origin}/news/list.json?limit=3`
-        console.log(apiUrl)
-        const res = await fetch(apiUrl)
-        if (!res.ok) {
-            return
-        }
-        let newsContentList = await res.json()
-        newsContentList = newsContentList.items
-        return {
-            props: { newsContentList },
-        }
-    }
-</script>
 <script>
     import Covid19HP from "./indexfiles/covid19-shiga.jpg"
     import TwitterLogo from "./indexfiles/twitter_logo_white.png"
-
-    export let newsContentList;
-    console.log(newsContentList)
+    /** @type {import('./$types').PageData} */
+    export let data;
 </script>
 
-<section id="top">
+<svelte:head>
+	<title>{ data.page.pageName }</title>
+    <meta property="og:url" content="https://shiga-info.net/news/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{ data.page.pageName }" />
+    <meta property="og:description" content="{ data.page.description }" />
+    <meta property="og:site_name" content="{ data.page.pageName }" />
+    <meta property="og:image" content="{ data.page.ogImage.src }" />
+</svelte:head>
+
+
+<section id="top" style="background-image: url({ data.page.topImage.src });">
     <div id="title_wrap">
         <p class="title">これまでも、これからも、</p>
         <p class="title">滋賀の役立つ情報を</p>
@@ -55,12 +50,7 @@
 </section>
 <section id="main">
     <div class="main_wrap">
-        <h2>滋賀情報ネットとは</h2>
-        <p><span> 滋賀情報ネットとは行政が公表している情報を</span><span>わかりやすく、そして多くの人に伝えることを</span><span>目的として始まった個人プロジェクトです。</span></p>
-    
-        <h2>これまでも、これからも、</h2>
-        <p><span>[非公式]滋賀県コロナまとめサイトを2020年に立ち上げ早一年。</span><span>多くの人に支えられ、</span><span>2022年も運営を続けられています。</span></p>
-        <p><span>これからはコロナだけでない、</span><span>身の回りの安全、安心を求め</span><span>走り続けます。</span></p>
+        { @html data.page.mainText }
     </div>
 
     <div class="main_wrap">
@@ -90,7 +80,7 @@
 <section id="news">
     <h2>News</h2>
     <div class="news_list">
-        {#each newsContentList as newsContent }
+        {#each data.news.items as newsContent }
             <a 
                 class="news_wrap"
                 href="/news/{ newsContent._id }"
@@ -111,12 +101,16 @@
     <a href="/news">ニュース一覧を見る</a>
 </section>
 
+<section id="form">
+    <a href="/form/">お問い合わせはこちらから!!</a>
+</section>
+
 <style>
     section#top {
         padding: 80px 0 0 0;
         background-image: url("https://cdn.discordapp.com/attachments/875348328005632050/968106543457394708/unknown.png");
         background-size: cover;
-        background-position: 100% 0%;
+        background-position: 50% 50%;
         background-repeat: no-repeat;
         width: 100%;
         position: relative;
@@ -137,8 +131,12 @@
         display: flex;
     }
 
-    section {
+    section#main,
+    section#news,
+    section#form {
         padding: 0 10px 10px 10px;
+        max-width: 900px;
+        margin: 0 auto;
     }
     section#main p {margin: 0 0 4px 0;}
     section#main p span{
@@ -149,8 +147,6 @@
     }
     section#main div.main_wrap #project_wrap {display: flex; overflow-x: scroll;}
     section#main div.main_wrap #project_wrap a {text-decoration: none;}
-
-    section#other a{margin-left: 10px;}
 
     a.project_wrap {
         border-radius: 10px;
@@ -220,12 +216,27 @@
         width: 170px; height: 3px;
         background-color: #121212;
         bottom: 0; left: 0;
-    }section a[href="/news"]::after{
+    }
+    section a[href="/news"]::after{
         position: absolute;
         content: "";
         width: 20px; height: 3px;
         background-color: #121212;
         bottom: 0px; left: 150px;
         transform: rotate(45deg) translate(-22%,-218%);
+    }
+
+    section#form a{
+        display: block;
+        background: #BAE6FF;
+        font-weight: 700;
+        text-decoration: none;
+
+        margin: 10px auto;
+        padding: 0 25px;
+        
+        height: 48px;
+        line-height: 49px;
+        border-radius: 26px;
     }
 </style>
