@@ -6,24 +6,9 @@
     <meta property="og:description" content="滋賀県情報ネットのお問い合わせフォームです。。" />
     <meta property="og:site_name" content="滋賀情報ネット" />
     <meta property="og:image" content="" />
-
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lfw-FIkAAAAAKdknMK03Ww8ktOY4H-_nx6ifZTz"></script>
+    
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 </svelte:head>
-
-<script>
-    import { onMount } from 'svelte';
-
-    onMount(async () => {
-        grecaptcha.ready(function () {
-        grecaptcha
-            .execute("6Lfw-FIkAAAAAKdknMK03Ww8ktOY4H-_nx6ifZTz", { action: "homepage" })
-            .then(function (token) {
-                document.getElementById("recaptchaToken").value = token;
-            });
-        });
-    });
-</script>
 
 <section>
     <h2>滋賀情報ネットプロジェクトお問い合わせフォーム</h2>
